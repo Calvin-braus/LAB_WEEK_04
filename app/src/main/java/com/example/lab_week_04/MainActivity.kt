@@ -2,9 +2,13 @@ package com.example.lab_week_04
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,33 +19,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Set toolbar
+        // Setup toolbar
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        // Ambil NavController dari NavHostFragment
+        // Ambil NavController
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Set top-level destinations (yang tidak menampilkan tombol "back")
+        // Top-level destinations untuk Navigation Drawer & Bottom Navigation
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.listFragment,
-                R.id.favoritesFragment
-            ), findViewById(R.id.drawer_layout)
+            setOf(R.id.listFragment, R.id.favoritesFragment, R.id.cafeFragment),
+            drawerLayout
         )
 
-        // Hubungkan toolbar dengan navController
+        // Setup ActionBar dengan NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Hubungkan NavigationView dengan navController
-        findViewById<NavigationView>(R.id.nav_view)
-            ?.setupWithNavController(navController)
+        // Setup Navigation Drawer
+        findViewById<NavigationView>(R.id.nav_view)?.setupWithNavController(navController)
+
+        // Setup Bottom Navigation
+        findViewById<BottomNavigationView>(R.id.bottom_nav)?.setupWithNavController(navController)
     }
 
-    // Agar tombol "Up" toolbar bekerja
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
