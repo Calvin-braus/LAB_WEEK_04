@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/listFragment">
 
+    <!-- Coffee List Fragment -->
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.lab_week_04.ListFragment"
@@ -15,16 +16,24 @@
             app:destination="@id/detailFragment" />
     </fragment>
 
-    <!-- Perbaiki di sini: ganti <activity> menjadi <fragment> -->
+    <!-- Favorites Fragment -->
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.lab_week_04.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
 
+    <!-- Detail Fragment -->
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.lab_week_04.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+
+    <!-- Cafe Fragment -->
+    <fragment
+        android:id="@+id/cafeFragment2"
+        android:name="com.example.lab_week_04.CafeFragment"
+        android:label="fragment_cafe"
+        tools:layout="@layout/fragment_cafe" />
 </navigation>

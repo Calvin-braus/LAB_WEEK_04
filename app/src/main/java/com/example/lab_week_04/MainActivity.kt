@@ -6,6 +6,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.listFragment,
-                R.id.favoritesFragment
+                R.id.favoritesFragment,
+                R.id.cafeFragment
             ), findViewById(R.id.drawer_layout)
         )
 
@@ -36,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         // Hubungkan NavigationView dengan navController
         findViewById<NavigationView>(R.id.nav_view)
+            ?.setupWithNavController(navController)
+
+        // Hubungkan BottomNavigationView dengan navController
+        findViewById<BottomNavigationView>(R.id.bottom_nav)
             ?.setupWithNavController(navController)
     }
 
