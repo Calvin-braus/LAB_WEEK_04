@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.listFragment,
                 R.id.favoritesFragment,
-                R.id.cafeFragment
+                R.id.cafeFragment2
             ), findViewById(R.id.drawer_layout)
         )
 

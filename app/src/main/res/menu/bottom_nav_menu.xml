@@ -7,7 +7,7 @@
         android:title="@string/bottom_menu_coffee" />
 
     <item
-        android:id="@+id/cafeFragment"
+        android:id="@+id/cafeFragment2"
         android:icon="@drawable/cafe"
         android:title="@string/bottom_menu_cafe" />
 

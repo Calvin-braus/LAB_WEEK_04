@@ -25,8 +25,20 @@
 
     <!-- Cafe -->
     <string name="starbucks_title">STARBUCKS</string>
+    <string name="starbucks_desc">
+        Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. Itss the worlds largest coffeehouse chain.
+    </string>
+
     <string name="janjijiwa_title">JANJI JIWA</string>
+    <string name="janjijiwa_desc">
+        Janji Jiwa is a local coffee brand popular among students, workers, and families. "Coffee from the heart", classic taste for coffee lovers.
+    </string>
+
     <string name="kopikenangan_title">KOPI KENANGAN</string>
+    <string name="kopikenangan_desc">
+        At Kopi Kenangan, they serve high-quality coffee with the freshest local ingredients to customers across Indonesia and the world.
+    </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
