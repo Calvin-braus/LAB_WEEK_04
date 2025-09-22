@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,28 +24,22 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Set top-level destinations (yang tidak menampilkan tombol "back")
+        // Set top-level destinations
         appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.listFragment,
-                R.id.favoritesFragment,
-                R.id.cafeFragment2
-            ), findViewById(R.id.drawer_layout)
+            setOf(R.id.listFragment, R.id.favoritesFragment, R.id.cafeFragment2),
+            findViewById(R.id.drawer_layout)
         )
 
         // Hubungkan toolbar dengan navController
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         // Hubungkan NavigationView dengan navController
-        findViewById<NavigationView>(R.id.nav_view)
-            ?.setupWithNavController(navController)
+        findViewById<NavigationView>(R.id.nav_view)?.setupWithNavController(navController)
 
         // Hubungkan BottomNavigationView dengan navController
-        findViewById<BottomNavigationView>(R.id.bottom_nav)
-            ?.setupWithNavController(navController)
+        findViewById<BottomNavigationView>(R.id.bottom_nav)?.setupWithNavController(navController)
     }
 
-    // Agar tombol "Up" toolbar bekerja
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
